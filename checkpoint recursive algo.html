@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isLeapYear(year) {
+    // Vérifie si l'année est divisible par 4
+    if (year % 4 === 0) {
+        // Vérifie si l'année est divisible par 100
+        if (year % 100 === 0) {
+            // Vérifie si l'année est aussi divisible par 400
+            return year % 400 === 0;
+        }
+        return true; // Si divisible par 4 mais pas par 100, elle est bissextile
+    }
+    return false; // Si non divisible par 4, elle n'est pas bissextile
+}
+
+// Exemple d'utilisation
+const year = 2024; // Changez l'année pour tester
+if (isLeapYear(year)) {
+    console.log(`${year} est une année bissextile.`);
+} else {
+    console.log(`${year} n'est pas une année bissextile.`);
+}
+
+    </script>
+
+
+<script>
+function isPalindromeRecursive(str) {
+    // Nettoyage de la chaîne : suppression des espaces, ponctuation et conversion en minuscules
+    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    
+    // Fonction récursive pour vérifier si c'est un palindrome
+    function checkPalindrome(cleanedStr, start, end) {
+        if (start >= end) {
+            return true; // Si les indices se croisent, c'est un palindrome
+        }
+        if (cleanedStr[start] !== cleanedStr[end]) {
+            return false; // Si les caractères ne correspondent pas, ce n'est pas un palindrome
+        }
+        return checkPalindrome(cleanedStr, start + 1, end - 1); // Rappel récursif avec indices ajustés
+    }
+    
+    return checkPalindrome(cleanStr, 0, cleanStr.length - 1);
+}
+
+// Exemple d'utilisation
+const phrase = "A man, a plan, a canal, Panama";
+if (isPalindromeRecursive(phrase)) {
+    console.log(`"${phrase}" est un palindrome.`);
+} else {
+    console.log(`"${phrase}" n'est pas un palindrome.`);
+}
+
+</script>
+
+</body>
+
+
+</html>
